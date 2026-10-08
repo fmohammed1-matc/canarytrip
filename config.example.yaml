@@ -1,0 +1,21 @@
+# CanaryTrip example configuration. Copy to config.yaml and edit.
+canary_files:
+  - ~/Documents/passwords_backup.txt
+  - ~/Documents/client_records.csv
+  - ~/Documents/project_plan.docx
+watch_dirs:
+  - ~/Documents
+
+# Detection tuning
+entropy_threshold: 7.0     # bits/byte; files at/above this count as suspicious
+window_seconds: 10.0       # sliding window for burst detection
+min_files: 5               # suspicious files within the window to raise an alert
+
+# Alerting
+log_path: alerts.jsonl     # "" disables file logging
+webhook_url: ""            # e.g. https://hooks.slack.com/...  ("" disables)
+console_alerts: true
+
+# Defensive response — OFF by default. When true, CanaryTrip terminates the
+# process actively encrypting files. Only enable on machines you own.
+kill_suspect_process: false

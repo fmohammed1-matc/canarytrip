@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CanaryTrip — Ransomware Tripwire</title>
+<link rel="stylesheet" href="/static/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js"></script>
+</head>
+<body>
+
+<!-- Boot sequence overlay -->
+<div id="boot">
+  <div id="boot-log"></div>
+</div>
+
+<!-- Ambient particle canvas (behind everything) -->
+<canvas id="stars"></canvas>
+
+<header>
+  <div class="logo">CANARY<span>TRIP</span></div>
+  <div class="tagline">behavioral ransomware tripwire</div>
+  <div id="status-banner" class="safe">● SAFE</div>
+</header>
+
+<main>
+  <aside id="left">
+    <div class="panel">
+      <h2>Telemetry</h2>
+      <div class="stat"><label>files watched</label><span id="st-files">–</span></div>
+      <div class="stat"><label>canaries deployed</label><span id="st-canaries">–</span></div>
+      <div class="stat"><label>alerts raised</label><span id="st-alerts">–</span></div>
+      <div class="stat"><label>mean entropy</label><span id="st-entropy">–</span></div>
+    </div>
+    <div class="panel">
+      <h2>Canary Integrity</h2>
+      <div id="gauges"></div>
+    </div>
+    <div class="panel">
+      <button id="simulate">▶ SIMULATE ATTACK</button>
+      <p class="hint">Stages a fake encryption burst against scratch files. Nothing real is touched.</p>
+    </div>
+  </aside>
+
+  <section id="stage">
+    <canvas id="scene"></canvas>
+    <div id="caption">FILE-SYSTEM PARTICLE FIELD — each node is a watched file · glowing nodes are canaries</div>
+  </section>
+
+  <aside id="right">
+    <div class="panel grow">
+      <h2>Event Timeline</h2>
+      <div id="timeline"></div>
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <span>CanaryTrip v0.1.0 · defensive only — detects, never attacks</span>
+  <span id="clock"></span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
